@@ -33,7 +33,6 @@ def handle_general_query(prompt, llm):
     
     
 def handle_document_query(index, prompt, llm):
-    """Processes an uploaded document, creates an index, and sets up a document-specific chat engine."""
     """
     Handles document queries using the Azure AI model.
     
