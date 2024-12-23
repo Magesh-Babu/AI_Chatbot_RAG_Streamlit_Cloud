@@ -34,7 +34,7 @@ def handle_general_query(prompt, llm):
     
 def handle_document_query(index, prompt, llm):
     """
-    Handles document queries using the Azure AI model.
+    Handles document based queries using the Azure AI model.
     
     Args:
         index (float): vectorized form of input document
