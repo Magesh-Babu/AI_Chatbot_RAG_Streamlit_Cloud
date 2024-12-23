@@ -7,7 +7,7 @@ def handle_general_query(prompt, llm):
     
     Args:
         prompt (str): The general input question.
-        llm ():
+        llm (AzureAICompletionsModel): An instance of a class or client that provides interaction with the llama 3 model in Azure.
         
     Returns:
         str: LLM generates response based on questions in the prompt.
@@ -39,7 +39,7 @@ def handle_document_query(index, prompt, llm):
     Args:
         index (float): vectorized form of input document
         prompt (str): The relevant question about the document.
-        llm ():
+        llm (AzureAICompletionsModel): An instance of a class or client that provides interaction with the llama 3 model in Azure.
         
     Returns:
         str: LLM generates response based on questions with given document in the prompt.
