@@ -1,0 +1,11 @@
+1. Utmaningar du haft under arbetet samt hur du hanterat dem.
+
+Även om jag kan utveckla backend-kod separat för att hantera generella frågor och externa databaserade frågor. Det är utmanande att integrera dessa två i en enda applikation i det interaktiva användargränssnittet. Men med hjälp av streamlit exempel, llamaindex exempel, chatgpt och google har jag lyckats få jobbet gjort.
+
+
+2. Vilket betyg du anser att du skall ha och varför.
+Jag kan klara mig bekvämt eftersom jag tror att jag uppfyllde alla krav för denna kurs.
+
+
+3. Något du vill lyfta fram till Antonio?
+Inget verkar vara problem i kursen. Det var fantastiskt att arbeta i den här typen av projekt.
