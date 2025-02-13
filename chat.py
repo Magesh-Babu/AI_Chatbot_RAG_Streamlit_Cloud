@@ -5,7 +5,7 @@ def display_chat():
     """Displays chat messages stored in session state."""
     if "messages" not in st.session_state or not st.session_state.messages:
         # Initialize default general chat messages
-        st.session_state.messages = [{"role": "assistant", "content": "Hello, I am simple chatbot. Ask me any questions"}]
+        st.session_state.messages = [{"role": "assistant", "content": "Hello, How can i help you?"}]
     for message in st.session_state.messages:
         with st.chat_message(message["role"]):
             st.write(message["content"])

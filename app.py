@@ -18,9 +18,9 @@ def create_index(documents):
 
 # Sidebar for file upload and settings
 with st.sidebar:
-    st.title("🧑‍🏫 LLM Chatbot with RAG")
-    st.markdown("Upload a document and start asking questions. Or ask general questions without uploading any document.")
-
+    st.title("AI Chatbot with RAG 🔥 🚀")
+    st.markdown("#### Upload a document and start asking questions about it.")
+    st.markdown("#### Or Ask general questions without uploading any document.")
     # File uploader for document (supports PDF and text files)
     uploaded_document = st.file_uploader("Upload Document (PDF or Text)", type=["pdf", "txt"])
 
@@ -37,7 +37,7 @@ with st.sidebar:
 
         # Load data and create an index
         index = create_index(documents)
-        st.success(f"Document '{uploaded_document.name}' uploaded successfully! You can now ask questions.")
+        st.success(f"Document '{uploaded_document.name}' uploaded and ingested successfully! You can now ask questions.")
 
     st.sidebar.button('Clear Chat History', on_click=clear_chat_history)  
 

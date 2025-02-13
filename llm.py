@@ -8,6 +8,6 @@ def initialize_llm():
     """Initialize and return the Azure AI completions model."""
     return AzureAICompletionsModel(
         endpoint = AZURE_META_ENDPOINT,
-        credential = AZURE_META_API
+        credential = AZURE_META_API,
     )
 
