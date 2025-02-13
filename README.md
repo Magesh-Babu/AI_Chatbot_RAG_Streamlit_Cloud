@@ -1,7 +1,7 @@
 # AI-chatbot-Application
 
 This repository contains an AI-powered chatbot application built using Streamlit. The chatbot can answer both general queries and document-based queries. It leverages state-of-the-art Large Language Models (LLMs) and Retrieval-Augmented Generation (RAG) techniques to provide accurate and context-aware responses.
-
+Check out the app: [AI-Chatbot-RAG](https://ai-chatbot-rag-magesh-babu.streamlit.app/)
 
 #### Features
 
