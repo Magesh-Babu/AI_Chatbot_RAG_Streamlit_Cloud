@@ -51,3 +51,4 @@ else:
     display_chat()
     if prompt := st.chat_input("Ask a general question"):
         handle_general_query(prompt, llm)
+

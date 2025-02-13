@@ -10,3 +10,4 @@ def initialize_llm():
         endpoint = AZURE_META_ENDPOINT,
         credential = AZURE_META_API
     )
+
