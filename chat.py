@@ -1,5 +1,24 @@
 import os
 import streamlit as st
+from llama_index.llms.azure_inference import AzureAICompletionsModel
+from llama_index.core import VectorStoreIndex
+from llama_index.embeddings.huggingface import HuggingFaceEmbedding
+
+AZURE_META_API = os.getenv("AZURE_META_API")
+AZURE_META_ENDPOINT = os.getenv("AZURE_META_ENDPOINT")
+
+def initialize_llm():
+    """Initialize and return the Azure AI completions model."""
+    return AzureAICompletionsModel(
+        endpoint = AZURE_META_ENDPOINT,
+        credential = AZURE_META_API,
+    )
+
+def create_index(documents):
+    """Creates and returns a VectorStore index from the documents."""
+    embed_model = HuggingFaceEmbedding(model_name="BAAI/bge-small-en-v1.5")
+    index = VectorStoreIndex.from_documents(documents, embed_model=embed_model)
+    return index
 
 def display_chat():
     """Displays chat messages stored in session state."""

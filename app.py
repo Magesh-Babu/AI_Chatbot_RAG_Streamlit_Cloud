@@ -1,20 +1,12 @@
 import streamlit as st
 import tempfile
 import os
-from llama_index.core import SimpleDirectoryReader, VectorStoreIndex
-from llama_index.embeddings.huggingface import HuggingFaceEmbedding
-from llm import initialize_llm
+from llama_index.core import SimpleDirectoryReader
 from query_type import handle_general_query, handle_document_query
-from chat import display_chat, clear_chat_history
+from chat import display_chat, clear_chat_history, initialize_llm, create_index
 
 # Initialize the Azure LLM
 llm = initialize_llm()
-
-def create_index(documents):
-    """Creates and returns a VectorStore index from the documents."""
-    embed_model = HuggingFaceEmbedding(model_name="BAAI/bge-small-en-v1.5")
-    index = VectorStoreIndex.from_documents(documents, embed_model=embed_model)
-    return index
 
 # Sidebar for file upload and settings
 with st.sidebar:
