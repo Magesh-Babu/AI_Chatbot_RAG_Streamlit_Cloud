@@ -3,7 +3,7 @@ import tempfile
 import os
 from llama_index.core import SimpleDirectoryReader
 from query_type import handle_general_query, handle_document_query
-from chat import display_chat, clear_chat_history, initialize_llm, create_index
+from chat import display_chat, clear_chat_history, initialize_llm, connect_chromadb_create_index
 
 # Initialize the Azure LLM
 llm = initialize_llm()
@@ -28,7 +28,7 @@ with st.sidebar:
             documents = reader.load_data()
 
         # Load data and create an index
-        index = create_index(documents)
+        index = connect_chromadb_create_index(documents)
         st.success(f"Document '{uploaded_document.name}' uploaded and ingested successfully! You can now ask questions.")
 
     st.sidebar.button('Clear Chat History', on_click=clear_chat_history)  
