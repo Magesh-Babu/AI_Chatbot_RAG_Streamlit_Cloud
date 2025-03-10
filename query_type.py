@@ -1,6 +1,6 @@
+import time
 import streamlit as st
 from llama_index.core.llms import ChatMessage
-import time
 
 def handle_general_query(prompt, llm):
     """

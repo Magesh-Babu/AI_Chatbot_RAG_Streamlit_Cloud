@@ -4,17 +4,27 @@ from llama_index.llms.azure_inference import AzureAICompletionsModel
 from llama_index.core import VectorStoreIndex
 from llama_index.vector_stores.chroma import ChromaVectorStore
 from llama_index.core import StorageContext
-from llama_index.embeddings.huggingface import HuggingFaceEmbedding
+from llama_index.core import Settings
+from llama_index.embeddings.azure_inference import AzureAIEmbeddingsModel
 import chromadb
 
 AZURE_META_API = os.getenv("AZURE_META_API")
 AZURE_META_ENDPOINT = os.getenv("AZURE_META_ENDPOINT")
+AZURE_COHERE_API = os.getenv("AZURE_COHERE_API")
+AZURE_COHERE_ENDPOINT = os.getenv("AZURE_COHERE_ENDPOINT")
 
 def initialize_llm():
     """Initialize and return the Azure AI completions model."""
     return AzureAICompletionsModel(
         endpoint = AZURE_META_ENDPOINT,
         credential = AZURE_META_API,
+    )
+
+def initialize_embed_model():
+    """Initialize and return the Azure AI completions model."""
+    return AzureAIEmbeddingsModel(
+        endpoint = AZURE_COHERE_ENDPOINT,
+        credential = AZURE_COHERE_API,
     )
 
 def connect_chromadb_create_index(documents):
@@ -24,11 +34,11 @@ def connect_chromadb_create_index(documents):
     """
     chroma_client = chromadb.PersistentClient(path="./chroma_db")
     chroma_collection = chroma_client.get_or_create_collection("given_doc")
-    embed_model = HuggingFaceEmbedding(model_name="BAAI/bge-small-en-v1.5")
+    Settings.embed_model = initialize_embed_model()
     # set up ChromaVectorStore and load in data
     vector_store = ChromaVectorStore(chroma_collection=chroma_collection)
     storage_context = StorageContext.from_defaults(vector_store=vector_store)
-    index = VectorStoreIndex.from_documents(documents, storage_context=storage_context, embed_model=embed_model)
+    index = VectorStoreIndex.from_documents(documents, storage_context=storage_context)
     return index
 
 def display_chat():
